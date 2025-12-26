@@ -1,7 +1,7 @@
 # Keystone Framework
 
 <p align="center">
-  <img alt="Keystone Framework" src="https://raw.githubusercontent.com/Pyth3rEx/Keystone-FW/main/docs/assets/keystone-banner.png" width="100%" />
+  <img alt="Keystone Framework" src="https://github.com/Pyth3rEx/Keystone-FW/blob/main/docs/assets/keystone-banner.png?raw=true" width="100%" />
 </p>
 
 <p align="center">
