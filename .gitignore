@@ -1,0 +1,81 @@
+# .gitignore (Keystone — FiveM framework, TypeScript + PostgreSQL)
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Editors / IDEs ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.iml
+
+# --- Node / TypeScript ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+bun.lockb
+package-lock.json
+yarn.lock
+
+dist/
+build/
+out/
+.tmp/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# --- Testing / Coverage ---
+coverage/
+.nyc_output/
+reports/
+junit*.xml
+
+# --- Env / Secrets ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Runtime / local data ---
+data/
+tmp/
+storage/
+uploads/
+
+# --- FiveM / FXServer artifacts ---
+# Keep your config templates, ignore generated runtime stuff
+cache/
+server-data/cache/
+server-data/logs/
+server-data/crashes/
+server-data/txData/
+server-data/resources/**/dist/
+server-data/resources/**/node_modules/
+
+# If you keep local artifacts next to repo:
+artifacts/
+txData/
+crashes/
+
+# --- Database dumps ---
+*.sql
+*.dump
+*.bak
+*.backup
+
+# --- Optional: Docker ---
+**/.docker/
+docker/*.local.*
