@@ -1,7 +1,7 @@
 # Keystone Framework
 
 <p align="center">
-  <img alt="Keystone Framework" src="https://raw.githubusercontent.com/<YOUR_GITHUB_USERNAME>/keystone/main/docs/assets/keystone-banner.png" width="100%" />
+  <img alt="Keystone Framework" src="https://raw.githubusercontent.com/Pyth3rEx/Keystone-FW/main/docs/assets/keystone-banner.png" width="100%" />
 </p>
 
 <p align="center">
@@ -11,26 +11,26 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/actions/workflows/ci.yml">
-    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/<YOUR_GITHUB_USERNAME>/keystone/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/actions/workflows/ci.yml">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/Pyth3rEx/Keystone-FW/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/<YOUR_GITHUB_USERNAME>/keystone?label=License" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/Pyth3rEx/keystone?label=License" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/releases">
-    <img alt="Release" src="https://img.shields.io/github/v/release/<YOUR_GITHUB_USERNAME>/keystone?include_prereleases&label=Release" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/releases">
+    <img alt="Release" src="https://img.shields.io/github/v/release/Pyth3rEx/keystone?include_prereleases&label=Release" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/commits/main">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/<YOUR_GITHUB_USERNAME>/keystone?label=Last%20commit" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/commits/main">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Pyth3rEx/keystone?label=Last%20commit" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/issues">
-    <img alt="Issues" src="https://img.shields.io/github/issues/<YOUR_GITHUB_USERNAME>/keystone?label=Issues" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/issues">
+    <img alt="Issues" src="https://img.shields.io/github/issues/Pyth3rEx/keystone?label=Issues" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/pulls">
-    <img alt="PRs" src="https://img.shields.io/github/issues-pr/<YOUR_GITHUB_USERNAME>/keystone?label=PRs" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/pulls">
+    <img alt="PRs" src="https://img.shields.io/github/issues-pr/Pyth3rEx/keystone?label=PRs" />
   </a>
-  <a href="https://github.com/<YOUR_GITHUB_USERNAME>/keystone/stargazers">
-    <img alt="Stars" src="https://img.shields.io/github/stars/<YOUR_GITHUB_USERNAME>/keystone?label=Stars" />
+  <a href="https://github.com/Pyth3rEx/Keystone-FW/stargazers">
+    <img alt="Stars" src="https://img.shields.io/github/stars/Pyth3rEx/keystone?label=Stars" />
   </a>
 </p>
 
@@ -115,7 +115,7 @@ Keystone is intentionally opinionated:
 ### 1) Clone
 
 ```bash
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/keystone.git
+git clone https://github.com/Pyth3rEx/keystone.git
 cd keystone
 ```
 
@@ -220,4 +220,4 @@ MIT. See `LICENSE`.
 * FiveM / Cfx.re ecosystem for the runtime and tooling
 * Community patterns around exports/events and resource design
 
-> Note: Replace placeholders like `<YOUR_GITHUB_USERNAME>` and add `docs/assets/keystone-banner.png` when ready.
+> Note: Replace placeholders like `Pyth3rEx` and add `docs/assets/keystone-banner.png` when ready.
