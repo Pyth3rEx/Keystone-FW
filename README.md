@@ -109,22 +109,121 @@ Keystone is intentionally opinionated:
 ## Repository layout
 
 ```text
-.
-├── resources/
-│   ├── [keystone]/
-│   │   ├── keystone-core/           # Core runtime (events, DI, config, logging)
-│   │   ├── keystone-example/        # Minimal example module (proves plugin model)
-│   │   └── ...                      # Future system modules (identity, inventory, etc.)
-├── packages/
-│   ├── shared/                      # Shared TS types, schemas, utilities
-│   └── tooling/                     # Migration runner, generators, seed scripts
-├── docs/
-│   ├── architecture.md
-│   ├── api.md
-│   └── assets/                      # README images (banner, diagrams)
-└── .github/
-    └── workflows/
-        └── ci.yml
+Keystone-FW/
+│
+├─ .github/
+│   ├─ workflows/
+│   │   ├─ ci.yml                 # build, lint, typecheck
+│   │   ├─ release.yml            # build + package release bundle
+│   │   └─ updater.yml            # optional auto-release metadata
+│   └─ ISSUE_TEMPLATE/
+│
+├─ config/                        # OPERATOR-OWNED (never overwritten)
+│   ├─ general/                   # global framework config
+│   │   └─ keystone.yaml
+│   ├─ modules/
+│   │   ├─ identity.yaml
+│   │   ├─ accounts.yaml
+│   │   └─ inventory.yaml
+│   ├─ secrets.env                # ignored by git
+│   └─ keystone.lock.json         # pinned versions (written by updater)
+│
+├─ resources/
+│   └─ [keystone]/
+│     └─ keystone-core/          # THE ONLY FiveM RESOURCE
+│         ├─ fxmanifest.lua
+│         │
+│         ├─ bootstrap/
+│         │   ├─ server.ts       # FiveM entrypoint (server)
+│         │   └─ client.ts       # FiveM entrypoint (client)
+│         │
+│         ├─ runtime/
+│         │   ├─ moduleLoader.ts # discovery, dependency graph, lifecycle
+│         │   ├─ dependency.ts   # topo sort, cycle detection
+│         │   ├─ registry.ts     # loaded modules, states
+│         │   └─ disposables.ts  # cleanup enforcement
+│         │
+│         ├─ core/
+│         │   ├─ container.ts    # DI-lite
+│         │   ├─ events.ts       # typed event bus
+│         │   ├─ rpc.ts          # RPC layer
+│         │   ├─ permissions.ts
+│         │   ├─ commands.ts
+│         │   ├─ notifications.ts
+│         │   ├─ logging.ts
+│         │   ├─ config.ts       # schema validation + resolution
+│         │   └─ clock.ts
+│         │
+│         ├─ db/
+│         │   ├─ db.ts
+│         │   ├─ tx.ts
+│         │   ├─ repository.ts
+│         │   └─ migrations/
+│         │
+│         ├─ modules/            # BUILT-IN Keystone modules (plugins)
+│         │   ├─ identity/
+│         │   │   ├─ module.json
+│         │   │   ├─ server.ts
+│         │   │   ├─ client.ts
+│         │   │   └─ ui/
+│         │   ├─ accounts/
+│         │   └─ inventory/
+│         │
+│         ├─ modules-external/
+│         │   └─ keystone-example/     # DOCUMENTATION EXAMPLE
+│         │       ├─ module.json
+│         │       ├─ server.ts
+│         │       ├─ client.ts
+│         │       └─ README.md
+│         │
+│         ├─ ui/                 # core UI shell (React/NUI)
+│         │   ├─ index.html
+│         │   ├─ src/
+│         │   └─ dist/
+│         │
+│         └─ dist/
+│             ├─ server.js       # compiled bundle
+│             ├─ client.js
+│             └─ modules/        # compiled plugin bundles
+│
+├─ packages/
+│   ├─ shared/                     # STABLE CONTRACTS (SACRED)
+│   │   ├─ events/
+│   │   ├─ rpc/
+│   │   ├─ permissions.ts
+│   │   ├─ config/
+│   │   ├─ schemas/
+│   │   └─ errors.ts
+│   │
+│   └─ tooling/
+│       ├─ updater/
+│       │   ├─ update.ts           # download, verify, swap, rollback
+│       │   └─ checksum.ts
+│       ├─ migrate/
+│       ├─ seed/
+│       └─ cli.ts                  # pnpm keystone <cmd>
+│
+├─ docs/
+│   ├─ architecture.md
+│   ├─ module-spec.md
+│   ├─ lifecycle.md
+│   ├─ config.md
+│   ├─ updater.md
+│   └─ philosophy.md
+│
+├─ scripts/
+│   ├─ build.ts
+│   ├─ dev.ts
+│   └─ package-release.ts
+│
+├─ .gitignore
+├─ package.json
+├─ pnpm-lock.yaml
+├─ tsconfig.base.json
+├─ tsconfig.server.json
+├─ tsconfig.client.json
+└─ README.md
+
 ````
 
 ---
