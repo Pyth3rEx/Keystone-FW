@@ -1,27 +1,11 @@
 # Keystone Framework
 
 <p align="center">
-  <img alt="Keystone Framework" src="https://github.com/Pyth3rEx/Keystone-FW/blob/main/docs/assets/keystone-banner.png?raw=true" width="100%" />
-</p>
-
-<p align="center">
-  <strong>A clean, modular, TypeScript-first FiveM framework with a PostgreSQL backbone.</strong>
-  <br />
-  Built as a portfolio-grade codebase: typed contracts, plugin architecture, migrations, and audit-friendly design.
-</p>
-
-# Keystone Framework
-
-<p align="center">
   <strong>A clean, modular, TypeScript-first FiveM framework with a PostgreSQL backbone.</strong><br/>
   Portfolio-grade architecture: typed contracts, plugin system, migrations, and audit-ready design.
 </p>
 
 <div align="center">
-<a href="https://github.com/Pyth3rEx/Keystone-FW/actions">
-  <img alt="CI"
-    src="https://img.shields.io/github/actions/workflow/status/Pyth3rEx/Keystone-FW/ci.yml?branch=main&style=for-the-badge&label=CI&logo=githubactions&logoColor=white" />
-</a>
 <a href="https://github.com/Pyth3rEx/Keystone-FW/blob/main/LICENSE">
   <img alt="License"
     src="https://img.shields.io/github/license/Pyth3rEx/Keystone-FW?style=for-the-badge&label=License" />
@@ -31,19 +15,10 @@
     src="https://img.shields.io/github/v/release/Pyth3rEx/Keystone-FW?include_prereleases&style=for-the-badge&label=Release" />
 </a>
 <br/>
-<a href="https://github.com/Pyth3rEx/Keystone-FW/commits/main">
-  <img alt="Last Commit"
-    src="https://img.shields.io/github/last-commit/Pyth3rEx/Keystone-FW?style=for-the-badge&label=Last%20Commit" />
-</a>
 <a href="https://github.com/Pyth3rEx/Keystone-FW/issues">
   <img alt="Issues"
     src="https://img.shields.io/github/issues/Pyth3rEx/Keystone-FW?style=for-the-badge&label=Issues" />
 </a>
-<a href="https://github.com/Pyth3rEx/Keystone-FW/pulls">
-  <img alt="Pull Requests"
-    src="https://img.shields.io/github/issues-pr/Pyth3rEx/Keystone-FW?style=for-the-badge&label=PRs" />
-</a>
-<br/>
 <a href="https://github.com/Pyth3rEx/Keystone-FW/stargazers">
   <img alt="Stars"
     src="https://img.shields.io/github/stars/Pyth3rEx/Keystone-FW?style=for-the-badge&label=Stars" />
@@ -52,8 +27,26 @@
   <img alt="Forks"
     src="https://img.shields.io/github/forks/Pyth3rEx/Keystone-FW?style=for-the-badge&label=Forks" />
 </a>
-</div>
 
+<p align="center">
+  <img alt="Keystone Framework" src="https://github.com/Pyth3rEx/Keystone-FW/blob/main/docs/assets/keystone-banner.png?raw=true" width="100%" />
+</p>
+
+</div>
+<div align="center">
+<a href="https://github.com/Pyth3rEx/Keystone-FW/commits/main">
+  <img alt="Last Commit"
+    src="https://img.shields.io/github/last-commit/Pyth3rEx/Keystone-FW?style=for-the-badge&label=Last%20Commit" />
+</a>
+<a href="https://github.com/Pyth3rEx/Keystone-FW/actions">
+  <img alt="CI"
+    src="https://img.shields.io/github/actions/workflow/status/Pyth3rEx/Keystone-FW/ci.yml?branch=main&style=for-the-badge&label=CI&logo=githubactions&logoColor=white" />
+</a>
+<a href="https://github.com/Pyth3rEx/Keystone-FW/pulls">
+  <img alt="Pull Requests"
+    src="https://img.shields.io/github/issues-pr/Pyth3rEx/Keystone-FW?style=for-the-badge&label=PRs" />
+</a>
+</div>
 
 ---
 
@@ -101,198 +94,6 @@ Keystone is intentionally opinionated:
 
 ---
 
-## Repository layout
-
-```text
-Keystone-FW/
-│
-├─ .github/
-│   ├─ workflows/
-│   │   ├─ ci.yml                 # build, lint, typecheck
-│   │   ├─ release.yml            # build + package release bundle
-│   │   └─ updater.yml            # optional auto-release metadata
-│   └─ ISSUE_TEMPLATE/
-│
-├─ config/                        # OPERATOR-OWNED (never overwritten)
-│   ├─ general/                   # global framework config
-│   │   └─ keystone.yaml
-│   ├─ modules/
-│   │   ├─ identity.yaml
-│   │   ├─ accounts.yaml
-│   │   └─ inventory.yaml
-│   ├─ secrets.env                # ignored by git
-│   └─ keystone.lock.json         # pinned versions (written by updater)
-│
-├─ resources/
-│   └─ [keystone]/
-│     └─ keystone-core/          # THE ONLY FiveM RESOURCE
-│         ├─ fxmanifest.lua
-│         │
-│         ├─ bootstrap/
-│         │   ├─ server.ts       # FiveM entrypoint (server)
-│         │   └─ client.ts       # FiveM entrypoint (client)
-│         │
-│         ├─ runtime/
-│         │   ├─ moduleLoader.ts # discovery, dependency graph, lifecycle
-│         │   ├─ dependency.ts   # topo sort, cycle detection
-│         │   ├─ registry.ts     # loaded modules, states
-│         │   └─ disposables.ts  # cleanup enforcement
-│         │
-│         ├─ core/
-│         │   ├─ container.ts    # DI-lite
-│         │   ├─ events.ts       # typed event bus
-│         │   ├─ rpc.ts          # RPC layer
-│         │   ├─ permissions.ts
-│         │   ├─ commands.ts
-│         │   ├─ notifications.ts
-│         │   ├─ logging.ts
-│         │   ├─ config.ts       # schema validation + resolution
-│         │   └─ clock.ts
-│         │
-│         ├─ db/
-│         │   ├─ db.ts
-│         │   ├─ tx.ts
-│         │   ├─ repository.ts
-│         │   └─ migrations/
-│         │
-│         ├─ modules/            # BUILT-IN Keystone modules (plugins)
-│         │   ├─ identity/
-│         │   │   ├─ module.json
-│         │   │   ├─ server.ts
-│         │   │   ├─ client.ts
-│         │   │   └─ ui/
-│         │   ├─ accounts/
-│         │   └─ inventory/
-│         │
-│         ├─ modules-external/
-│         │   └─ keystone-example/     # DOCUMENTATION EXAMPLE
-│         │       ├─ module.json
-│         │       ├─ server.ts
-│         │       ├─ client.ts
-│         │       └─ README.md
-│         │
-│         ├─ ui/                 # core UI shell (React/NUI)
-│         │   ├─ index.html
-│         │   ├─ src/
-│         │   └─ dist/
-│         │
-│         └─ dist/
-│             ├─ server.js       # compiled bundle
-│             ├─ client.js
-│             └─ modules/        # compiled plugin bundles
-│
-├─ packages/
-│   ├─ shared/                     # STABLE CONTRACTS (SACRED)
-│   │   ├─ events/
-│   │   ├─ rpc/
-│   │   ├─ permissions.ts
-│   │   ├─ config/
-│   │   ├─ schemas/
-│   │   └─ errors.ts
-│   │
-│   └─ tooling/
-│       ├─ updater/
-│       │   ├─ update.ts           # download, verify, swap, rollback
-│       │   └─ checksum.ts
-│       ├─ migrate/
-│       ├─ seed/
-│       └─ cli.ts                  # pnpm keystone <cmd>
-│
-├─ docs/
-│   ├─ architecture.md
-│   ├─ module-spec.md
-│   ├─ lifecycle.md
-│   ├─ config.md
-│   ├─ updater.md
-│   └─ philosophy.md
-│
-├─ scripts/
-│   ├─ build.ts
-│   ├─ dev.ts
-│   └─ package-release.ts
-│
-├─ .gitignore
-├─ package.json
-├─ pnpm-lock.yaml
-├─ tsconfig.base.json
-├─ tsconfig.server.json
-├─ tsconfig.client.json
-└─ README.md
-
-````
-
----
-
-## Quick start (dev)
-
-### Prerequisites
-
-* **FXServer** (FiveM server artifacts)
-* **Node.js** (LTS recommended)
-* **pnpm** (recommended) or npm
-* **Docker** (for local PostgreSQL)
-
-### 1) Clone
-
-```bash
-git clone https://github.com/Pyth3rEx/keystone.git
-cd keystone
-```
-
-### 2) Install
-
-```bash
-pnpm install
-```
-
-### 3) Start PostgreSQL (Docker)
-
-```bash
-docker compose up -d
-```
-
-### 4) Run migrations
-
-```bash
-pnpm db:migrate
-```
-
-### 5) Build
-
-```bash
-pnpm build
-```
-
-### 6) Add resources to your server
-
-In your `server.cfg`:
-
-```cfg
-ensure keystone-core
-ensure keystone-example
-```
-
-Then start FXServer.
-
----
-
-## Configuration
-
-Keystone supports config files + environment overrides.
-
-Example:
-
-```env
-KEYSTONE_DB_HOST=127.0.0.1
-KEYSTONE_DB_PORT=5432
-KEYSTONE_DB_NAME=keystone
-KEYSTONE_DB_USER=keystone
-KEYSTONE_DB_PASSWORD=keystone
-KEYSTONE_LOG_LEVEL=info
-```
-
----
-
 ## API philosophy
 
 Keystone exposes functionality through:
@@ -323,9 +124,7 @@ Guidelines:
 
 This repo is built as a portfolio project. PRs are welcome, but the main goal is architectural clarity and consistent standards.
 
-* Use conventional commits if possible
-* Keep modules small and composable
-* Avoid adding features that force Keystone into a monolith
+See `docs/philosphy.md`.
 
 ---
 
@@ -339,5 +138,3 @@ GNU v3. See `LICENSE`.
 
 * FiveM / Cfx.re ecosystem for the runtime and tooling
 * Community patterns around exports/events and resource design
-
-> Note: Replace placeholders like `Pyth3rEx` and add `docs/assets/keystone-banner.png` when ready.
