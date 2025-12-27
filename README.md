@@ -17,11 +17,6 @@
   Portfolio-grade architecture: typed contracts, plugin system, migrations, and audit-ready design.
 </p>
 
-<p align="center">
-  <strong>A clean, modular, TypeScript-first FiveM framework with a PostgreSQL backbone.</strong><br/>
-  Portfolio-grade architecture: typed contracts, plugin system, migrations, and audit-ready design.
-</p>
-
 <div align="center">
 <a href="https://github.com/Pyth3rEx/Keystone-FW/actions">
   <img alt="CI"
