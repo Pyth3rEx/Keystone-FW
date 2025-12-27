@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["limits", "impound"],
+  "properties": {
+    "limits": {
+      "type": "object",
+      "required": ["maxVehiclesPerPlayer"],
+      "properties": {
+        "maxVehiclesPerPlayer": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        }
+      }
+    },
+    "impound": {
+      "type": "object",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "fee": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}
