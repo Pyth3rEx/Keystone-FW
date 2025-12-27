@@ -101,76 +101,6 @@ Keystone is intentionally opinionated:
 
 ---
 
-## Quick start (dev)
-
-### Prerequisites
-
-* **FXServer** (FiveM server artifacts)
-* **Node.js** (LTS recommended)
-* **pnpm** (recommended) or npm
-* **Docker** (for local PostgreSQL)
-
-### 1) Clone
-
-```bash
-git clone https://github.com/Pyth3rEx/keystone.git
-cd keystone
-```
-
-### 2) Install
-
-```bash
-pnpm install
-```
-
-### 3) Start PostgreSQL (Docker)
-
-```bash
-docker compose up -d
-```
-
-### 4) Run migrations
-
-```bash
-pnpm db:migrate
-```
-
-### 5) Build
-
-```bash
-pnpm build
-```
-
-### 6) Add resources to your server
-
-In your `server.cfg`:
-
-```cfg
-ensure keystone-core
-ensure keystone-example
-```
-
-Then start FXServer.
-
----
-
-## Configuration
-
-Keystone supports config files + environment overrides.
-
-Example:
-
-```env
-KEYSTONE_DB_HOST=127.0.0.1
-KEYSTONE_DB_PORT=5432
-KEYSTONE_DB_NAME=keystone
-KEYSTONE_DB_USER=keystone
-KEYSTONE_DB_PASSWORD=keystone
-KEYSTONE_LOG_LEVEL=info
-```
-
----
-
 ## API philosophy
 
 Keystone exposes functionality through:
@@ -201,9 +131,7 @@ Guidelines:
 
 This repo is built as a portfolio project. PRs are welcome, but the main goal is architectural clarity and consistent standards.
 
-* Use conventional commits if possible
-* Keep modules small and composable
-* Avoid adding features that force Keystone into a monolith
+See `docs/philosphy.md`.
 
 ---
 
@@ -217,5 +145,3 @@ GNU v3. See `LICENSE`.
 
 * FiveM / Cfx.re ecosystem for the runtime and tooling
 * Community patterns around exports/events and resource design
-
-> Note: Replace placeholders like `Pyth3rEx` and add `docs/assets/keystone-banner.png` when ready.
