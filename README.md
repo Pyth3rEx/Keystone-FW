@@ -237,7 +237,7 @@ This repo is built as a portfolio project. PRs are welcome, but the main goal is
 
 ## License
 
-MIT. See `LICENSE`.
+GNU v3. See `LICENSE`.
 
 ---
 
